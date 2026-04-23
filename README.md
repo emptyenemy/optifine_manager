@@ -1,3 +1,5 @@
+![OptiFine Manager](https://i.imgur.com/CS09vii.png)
+
 # OptiFine Manager
 
 Terminal manager for downloading, installing, viewing changelogs, and removing OptiFine builds on Windows.
