@@ -1,30 +1,32 @@
-![OptiFine Manager](https://i.imgur.com/CS09vii.png)
-
 # OptiFine Manager
 
-Terminal manager for downloading, installing, viewing changelogs, and removing OptiFine builds on Windows.
+![OptiFine Manager](https://i.imgur.com/CS09vii.png)
 
-## Features
+[Русский](README.md) | [English](README_EN.md)
 
-- checks updates for locally installed Minecraft versions
-- shows only relevant OptiFine builds for versions you actually have
-- prefers release builds over preview builds
-- falls back to the latest preview if no release exists
-- opens changelog directly in the terminal
-- downloads OptiFine to a temporary folder
-- installs OptiFine through the internal silent installer entrypoint
-- deletes installed OptiFine versions and cleans launcher profiles
-- handles `optifine.net` connection errors without crashing
+Терминальный менеджер для загрузки, установки, просмотра changelog и удаления сборок OptiFine на Windows.
 
-## Requirements
+## Возможности
+
+- проверяет обновления для локально установленных версий Minecraft
+- показывает только те сборки OptiFine, которые соответствуют имеющимся версиям
+- отдаёт предпочтение release-сборкам перед preview-сборками
+- откатывается на последнюю preview-сборку, если release отсутствует
+- открывает changelog прямо в терминале
+- загружает OptiFine во временную папку
+- устанавливает OptiFine через внутреннюю точку входа тихого установщика
+- удаляет установленные версии OptiFine и чистит профили лаунчера
+- корректно обрабатывает ошибки соединения с `optifine.net` без падений
+
+## Требования
 
 - Windows
 - Python 3.11+
-- Java in `PATH`
-- installed Minecraft versions in:
+- Java в `PATH`
+- установленные версии Minecraft в:
   `C:\Users\%USERNAME%\AppData\Roaming\.minecraft\versions`
 
-## Installation
+## Установка
 
 ```powershell
 git clone https://github.com/emptyenemy/optifine_manager
@@ -32,43 +34,43 @@ cd "OptiFine Manager"
 pip install -r requirements.txt
 ```
 
-## Run
+## Запуск
 
 ```powershell
 python main.py
 ```
 
-## Controls
+## Управление
 
-- `↑/↓` move through the list
-- `Enter` install selected OptiFine build
-- `Space` open changelog
-- `Delete` remove installed OptiFine build
-- `Esc` go back / exit
+- `↑/↓` перемещение по списку
+- `Enter` установить выбранную сборку OptiFine
+- `Space` открыть changelog
+- `Delete` удалить установленную сборку OptiFine
+- `Esc` назад / выход
 
-## How It Works
+## Как это работает
 
-1. Reads local Minecraft versions from `.minecraft\versions`
-2. Downloads the OptiFine versions page
-3. Filters builds to only compatible local Minecraft versions
-4. Resolves the direct download link
-5. Downloads the selected `.jar` into a temporary directory
-6. Runs silent installation with:
+1. Читает локальные версии Minecraft из `.minecraft\versions`
+2. Загружает страницу версий OptiFine
+3. Фильтрует сборки, оставляя только совместимые с локальными версиями Minecraft
+4. Получает прямую ссылку на скачивание
+5. Загружает выбранный `.jar` во временную папку
+6. Запускает тихую установку командой:
 
 ```powershell
 java -cp OptiFine_xxx.jar optifine.Installer
 ```
 
-7. Removes the temporary installer file
+7. Удаляет временный файл установщика
 
-## Dependencies
+## Зависимости
 
 - `aiohttp`
 - `beautifulsoup4`
 - `colorama`
 - `pyfiglet`
 
-## Project Structure
+## Структура проекта
 
 ```text
 main.py
@@ -88,12 +90,12 @@ modules/
   status.py
 ```
 
-## Notes
+## Примечания
 
-- the project uses OptiFine's internal installer class instead of GUI automation
-- worlds are not deleted when removing OptiFine versions
-- if `optifine.net` is unavailable, the app shows a retry/exit screen instead of a traceback
+- проект использует внутренний класс установщика OptiFine вместо автоматизации GUI
+- миры не удаляются при удалении версий OptiFine
+- если `optifine.net` недоступен, приложение показывает экран повтора/выхода вместо трейсбэка
 
-## Disclaimer
+## Дисклеймер
 
-This project is unofficial and is not affiliated with OptiFine.
+Этот проект неофициальный и не связан с OptiFine.
